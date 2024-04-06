@@ -6,9 +6,6 @@ const gridRow = document.createElement("div");
 gridRow.classList.add("gridrow");
 const grid = document.createElement("div");
 grid.classList.add("grid");
-grid.addEventListener("click", (event) => {
-    event.target.style.backgroundColor = color; 
-});
 
 const gridSize = document.querySelector("#gridSize");
 const updateGridSize = document.querySelector("#update");
@@ -16,8 +13,6 @@ updateGridSize.addEventListener("click", appendGrid);
 appendGrid();
 
 let color = "black";
-
-
 
 function appendGrid() {
     while (gridContainer.firstChild) {
@@ -33,6 +28,21 @@ function appendGrid() {
         let gridRowClone = gridRow.cloneNode(true);
         gridContainer.appendChild(gridRowClone);
     }
+    const grids = document.querySelectorAll(".grid");
+    grids.forEach(element => {
+        let tmpColor;
+        element.addEventListener("mouseover", (event) => {
+            tmpColor = event.target.style.backgroundColor;
+            event.target.style.backgroundColor = color;
+        });
+        element.addEventListener("mouseout", (event) => {
+            event.target.style.backgroundColor = tmpColor;
+        });
+
+        element.addEventListener("click", (event) => { 
+            event.target.style.backgroundColor = color; 
+        });
+    });
 }
 
 const buttons = document.querySelector("ul");

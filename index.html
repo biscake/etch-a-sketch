@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-Sketch</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <div class="flex-container">
+        <h1>Etch-a-Sketch</h1>
+        <div class="drawingpad-container"></div>
+        <div class="options">
+            <div class="gridOptions">
+                <p>Grid Size:&nbsp;</p>
+                <input type="number" name="Grid Size" id="gridSize" value="16">
+                <button id="update">Update</button>
+            </div>         
+            <ul>
+                <li><button id="black">Black</button></li>
+                <li><button id="random">Random Color</button></li>
+                <li><button id="eraser">Eraser</button></li>
+                <li><button id="clear">Clear</button></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -9,8 +9,15 @@ grid.classList.add("grid");
 
 const gridSize = document.querySelector("#gridSize");
 const updateGridSize = document.querySelector("#update");
+gridSize.addEventListener("input", () => {
+    if (gridSize.value > 100) {
+        gridSize.value = 100;
+    }
+});
+
 updateGridSize.addEventListener("click", appendGrid);
 appendGrid();
+
 
 let color = "black";
 
@@ -60,7 +67,6 @@ buttons.addEventListener("click", (btn) => {
     else if (btnId === "random") {
         color = RANDOMCOLOR[Math.floor(Math.random() * RANDOMCOLOR.length)];
         console.log(color);
-        hover = color
     }
     else if (btnId === "clear") {
         let grids = gridContainer.querySelectorAll(".gridrow > .grid");

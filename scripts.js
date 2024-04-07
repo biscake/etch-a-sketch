@@ -14,6 +14,10 @@ appendGrid();
 
 let color = "black";
 
+let isMouseDown = false;
+document.addEventListener("mousedown", () => isMouseDown = true);
+document.addEventListener("mouseup", () => isMouseDown = false);
+
 function appendGrid() {
     while (gridContainer.firstChild) {
         gridContainer.removeChild(gridContainer.firstChild);
@@ -32,7 +36,6 @@ function appendGrid() {
     grids.forEach(element => {
         let tmpColor;
         let fired;
-        let isMouseDown = false;
         element.addEventListener("mouseover", (event) => {
             fired = false;
             tmpColor = event.target.style.backgroundColor;
@@ -43,8 +46,6 @@ function appendGrid() {
                 event.target.style.backgroundColor = tmpColor;
             }
         });
-        document.addEventListener("mousedown", () => isMouseDown = true);
-        document.addEventListener("mouseup", () => isMouseDown = false);
         element.addEventListener("click", () => fired = true);
     });
 }

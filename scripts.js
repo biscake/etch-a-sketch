@@ -26,10 +26,8 @@ document.addEventListener("mousedown", () => isMouseDown = true);
 document.addEventListener("mouseup", () => isMouseDown = false);
 
 function appendGrid() {
-    while (gridContainer.firstChild) {
-        gridContainer.removeChild(gridContainer.firstChild);
-        gridRow.removeChild(gridRow.firstChild);
-    }
+    gridContainer.innerHTML = "";
+    gridRow.innerHTML = "";
     const gridDimension = gridSize.value;
     for (gridCount = 0; gridCount < gridDimension; gridCount++) {
         let clone = grid.cloneNode();

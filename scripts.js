@@ -31,17 +31,21 @@ function appendGrid() {
     const grids = document.querySelectorAll(".grid");
     grids.forEach(element => {
         let tmpColor;
+        let fired;
+        let isMouseDown;
         element.addEventListener("mouseover", (event) => {
+            fired = false;
             tmpColor = event.target.style.backgroundColor;
             event.target.style.backgroundColor = color;
         });
         element.addEventListener("mouseout", (event) => {
-            event.target.style.backgroundColor = tmpColor;
+            if (fired === false && isMouseDown === false) {
+                event.target.style.backgroundColor = tmpColor;
+            }
         });
-
-        element.addEventListener("click", (event) => { 
-            event.target.style.backgroundColor = color; 
-        });
+        document.addEventListener("mousedown", () => isMouseDown = true);
+        document.addEventListener("mouseup", () => isMouseDown = false);
+        element.addEventListener("click", () => fired = true);
     });
 }
 

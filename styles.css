@@ -25,11 +25,10 @@
 
 .grid {
     flex: 1;
+    -webkit-user-drag: none;
+    user-select: none;
 }
 
-/* .grid:hover {
-    background-color: black;
-} */
 
 .options {
     display: flex;

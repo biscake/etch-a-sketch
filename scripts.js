@@ -32,7 +32,7 @@ function appendGrid() {
     grids.forEach(element => {
         let tmpColor;
         let fired;
-        let isMouseDown;
+        let isMouseDown = false;
         element.addEventListener("mouseover", (event) => {
             fired = false;
             tmpColor = event.target.style.backgroundColor;
